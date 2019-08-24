@@ -1,0 +1,222 @@
+{% extends "App/topbash/dingduan.html" %}
+{% load static %}
+{% block style %}
+            <style class="vjs-styles-defaults">
+            .video-js {
+                width: 300px;
+                height: 150px;
+            }
+
+            .vjs-fluid {
+                padding-top: 56.25%
+            }
+        </style>
+{% endblock style %}
+{% block link_image %}
+         <link rel="shortcut icon" href="https://static.smartisanos.cn/common/img/favicon.ico">
+        <link rel="apple-touch-icon" href="https://static.smartisanos.cn/common/img/favicon_114.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://static.smartisanos.cn/common/img/favicon_76.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://static.smartisanos.cn/common/img/favicon_120.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://static.smartisanos.cn/common/img/favicon_152.png">
+{% endblock link_image %}
+{% block overview %}
+            #overview[_ngcontent-c7] .top[_ngcontent-c7] figure[_ngcontent-c7] {
+            background-color: #000;
+            background-image: url(//static.smartisanos.cn/tnt/assets/images/overview-top.ed731fa24ea7245b0554e11c8ae89779.jpg);
+            background-image: -webkit-image-set(url(//static.smartisanos.cn/tnt/assets/images/overview-top.ed731fa24ea7245b0554e11c8ae89779.jpg) 1x, url(//static.smartisanos.cn/tnt/assets/images/overview-top.ed731fa24ea7245b0554e11c8ae89779.jpg) 2x);
+            background-size: 100% auto;
+            background-repeat: no-repeat
+        }
+{% endblock overview %}
+{% block script %}
+    <script type="text/javascript" charset="utf-8" async=""
+            src="{% static "js/2.1e57588313921bf02bc4.chunk.js.下载" %}"></script>
+    <script type="text/javascript" charset="utf-8" async=""
+            src="{% static "js/1.ce4c9fea3998f9db3018.chunk.js.下载" %}"></script>
+    <script type="text/javascript" charset="utf-8" async=""
+            src="{% static "js/0.40ee4d3a471d3146e8d0.chunk.js.下载" %}"></script>
+{% endblock script %}
+{% block index %}
+     <div class="wrapper page odin blockimages os-windows">
+        <header _nghost-c0=""> <!---->
+            <div _ngcontent-c0="" class="header cn theme-carbonblack">
+                <div _ngcontent-c0="" class="nav-global"> <!----><!---->
+                    <div _ngcontent-c0="" class="header-container">
+                        <h1 _ngcontent-c0="" class="nav-logo"><a
+                            _ngcontent-c0="" href="{% url "app:index" %}" title="锤子商城">Smartisan</a></h1>
+                        <div _ngcontent-c0="" class="nav-right">
+                            <ul _ngcontent-c0="" class="nav-list"> <!---->
+                                <li _ngcontent-c0=""><a _ngcontent-c0="" href="{% url "app:index" %}" target="">
+                                    在线商城 </a></li>
+                                {% for t1 in tab %}
+                                <li _ngcontent-c0=""><a _ngcontent-c0="" href="{{ t1.href }}"
+                                                        target="{{ t1.tname }}"> {{ t1.tname }}坚果 Pro 2S </a></li>
+                                {% endfor %}
+                            </ul>
+                        </div> <!---->
+                        <div _ngcontent-c0="" class="nav-aside">
+                            <div _ngcontent-c0="" class="nav-user"><a _ngcontent-c0=""></a> <!----> </div>
+                            <nav-cart _ngcontent-c0="" _nghost-c4="">
+                                <div _ngcontent-c4="" class="nav-cart theme-carbonblack"><a _ngcontent-c4=""
+                                                                                            href="https://www.smartisan.com/tnt/overview">
+                                    <!----> </a>
+                                    <div _ngcontent-c4="" class="nav-cart-wrapper">
+                                        <div _ngcontent-c4="" class="nav-cart-list"> <!----> <!---->
+                                            <div _ngcontent-c4=""> <!----><!---->
+                                                <div _ngcontent-c4="" class="empty"><h3 _ngcontent-c4="">购物车为空</h3>
+                                                    <p _ngcontent-c4="">您还没有选购任何商品，现在前往商城选购吧！</p></div>  <!----> </div>
+                                        </div>
+                                    </div>
+                                    <div _ngcontent-c4="" class="addcart-mask">
+                                        <div _ngcontent-c4="" class="mask-y">
+                                            <div _ngcontent-c4="" class="mask-x">
+                                                <div _ngcontent-c4="" class="mask-item"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav-cart> <!----> </div>
+                    </div>  <!----> </div>
+            </div> <!----> </header>
+            <header-sub _nghost-c1=""><!---->
+                <div _ngcontent-c1="" class="header-desktop theme-carbonblack cn">
+                    <div _ngcontent-c1="" class="nav-product odin-module">
+                        <div _ngcontent-c1="" class="cover"></div>
+                        <div _ngcontent-c1="" class="container">
+                            <div _ngcontent-c1="" class="nav-main"><h2 _ngcontent-c1="" class="nav-logo"></h2>
+                                <h2 _ngcontent-c1="" class="odin-nav-logo">坚果 TNT 工作站</h2>
+                                <div _ngcontent-c1="" class="nav-list-container">
+                                    <ul _ngcontent-c1="" class="nav-list"> <!---->
+                                        <li _ngcontent-c1=""> <!----><a _ngcontent-c1="" routerlinkactive="active"
+                                                                        href="https://www.smartisan.com/tnt/overview"
+                                                                        class="active">概览</a> <!----> </li>
+                                        <li _ngcontent-c1=""> <!---->
+                                            <a _ngcontent-c1="" routerlinkactive="active"
+                                                                        href="">操作系统</a>
+                                            <!----> </li>
+                                        <li _ngcontent-c1=""> <!----><a _ngcontent-c1="" routerlinkactive="active"
+                                                                        href="https://www.smartisan.com/tnt/specs">技术规格</a>
+                                            <!----> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div _ngcontent-c1="" class="nav-aside"> <!----> <!----> <!----> </div>
+                        </div>
+                    </div>
+                </div> <!----> </header-sub>
+        <div class="main">
+            <div autoscroll="true" ng-view="">
+                <router-outlet></router-outlet>
+                <ng-component>
+                    <!---->
+                    <!---->
+                    <trinity-overview-pc _nghost-c7="">
+                        <div _ngcontent-c7="" id="overview">
+                            <section _ngcontent-c7="" class="top">
+                                <figure _ngcontent-c7=""></figure>
+                            </section>
+                            <section _ngcontent-c7="" class="feature">
+                                <figure _ngcontent-c7=""><a _ngcontent-c7=""
+                                                            href="https://www.smartisan.com/tnt/specs"></a></figure>
+                            </section>
+                            <section _ngcontent-c7="" class="design">
+                                <figure _ngcontent-c7=""></figure>
+                            </section>
+                            <section _ngcontent-c7="" class="os">
+                                <figure _ngcontent-c7=""><a _ngcontent-c7=""
+                                                            href="https://www.smartisan.com/tnt/os"></a></figure>
+                            </section>
+                        </div>
+                    </trinity-overview-pc>
+                </ng-component>
+            </div>
+        </div>
+        <back-top _nghost-c2="">
+            <div _ngcontent-c2="" class="back-top"></div>
+        </back-top>
+        <footer _nghost-c3=""> <!---->
+            <div _ngcontent-c3="" class="footer">
+                <div _ngcontent-c3="" class="container">
+                    <div _ngcontent-c3="" class="siteinfo">
+                        <ul _ngcontent-c3="" class="nav-footer"> <!---->
+                            <li _ngcontent-c3=""><h3 _ngcontent-c3="">订单服务 </h3>
+                                <ul _ngcontent-c3=""> <!---->
+                                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                            href="https://www.smartisan.com/support/#/instruction">购买指南</a>
+                                    </li>
+                                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                            href="https://www.smartisan.com/support/#/delivery">送货政策</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li _ngcontent-c3=""><h3 _ngcontent-c3="">服务支持 </h3>
+                                <ul _ngcontent-c3=""> <!---->
+                                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                            href="https://www.smartisan.com/service/#/">自助服务</a></li>
+                                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                            href="https://www.smartisan.com/support/#/self-service">使用帮助</a>
+                                    </li>
+                                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                            href="https://www.smartisan.com/support/#/servicelist">维修门店</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li _ngcontent-c3=""><h3 _ngcontent-c3="">媒体中心 </h3>
+                                <ul _ngcontent-c3=""> <!---->
+                                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                            href="https://www.smartisan.com/pr/news-center">新闻动态</a>
+                                    </li>
+                                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                            href="https://www.smartisan.com/pr/videos">官方视频</a>
+                                    </li>
+                                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                            href="https://www.smartisan.com/pr/pictures">图片资源</a></li>
+                                </ul>
+                            </li>
+                            <li _ngcontent-c3=""><h3 _ngcontent-c3="">关注我们</h3>
+                                <ul _ngcontent-c3="">
+                                    <li _ngcontent-c3=""><a _ngcontent-c3="" href="https://weibo.com/wenyiyouth"
+                                                            target="_blank">新浪微博</a></li>
+                                    <li _ngcontent-c3="" class="weixin"><a _ngcontent-c3="">官方微信</a>
+                                        <div _ngcontent-c3="" class="mask"></div>
+                                        <div _ngcontent-c3="" class="qrcode">
+                                            <div _ngcontent-c3="" class="close-btn"></div>
+                                            <h4 _ngcontent-c3="">官方微信</h4> <h6 _ngcontent-c3="">
+                                            打开微信，点击右上角的“+”，选择“扫一扫”功能，用摄像头对准下方二维码即可。</h6>
+                                            <div _ngcontent-c3="" class="qrcode-bg"></div>
+                                        </div>
+                                    </li>
+                                    <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                            href="https://www.smartisan.com/support/#/awards">荣誉奖项</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul _ngcontent-c3="" class="service"> <!---->
+                            <li _ngcontent-c3="" class="tel">400 - 626 - 5666</li> <!---->
+                            <li _ngcontent-c3="" class="time">周一到周日 9:00 - 18:00</li>
+                            <li _ngcontent-c3="" class="time">(仅收市话费)</li>
+                            <li _ngcontent-c3="" class="online"><a _ngcontent-c3=""
+                                                                   href="https://www.smartisan.com/support/#/self-service"><span
+                                    _ngcontent-c3="" class="smartisan-icon info-question"></span>在线帮助</a></li>
+                        </ul>
+                    </div>
+                    <div _ngcontent-c3="" class="copyright"><h4 _ngcontent-c3="">Copyright © 2019 smartisan.com
+                        版权所有</h4>
+                        <ul _ngcontent-c3="" class="privacy">
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/support/#/agreement">法律声明</a></li>
+                            <li _ngcontent-c3=""><a _ngcontent-c3=""
+                                                    href="https://www.smartisan.com/support/#/privacy">隐私条款</a>
+                            </li>
+                        </ul>
+                        <h6 _ngcontent-c3=""><a _ngcontent-c3="" href="http://www.miibeian.gov.cn/" target="_blank">
+                            <span _ngcontent-c3="">京 ICP 备 18020659 号 - 2</span> </a></h6></div>
+                </div>
+            </div> <!----> </footer>
+     </div>
+{% endblock index %}
+{% block script01 %}
+    <script type="text/javascript" src="{% static "js/commons.f54704e2bb0ff31516f7.bundle.js.下载" %}"></script>
+    <script type="text/javascript" src="{% static "js/app.deb79a9e3444f62bb230.bundle.js.下载" %}"></script>
+{% endblock script01 %}

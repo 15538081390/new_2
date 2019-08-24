@@ -1,0 +1,50 @@
+{% extends "manage/base.html" %}
+{% block content %}
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">产品采购</h2>
+       <a class="fr top_rt_btn">返回首页</a>
+      </div>
+      <section class="mtb">
+       <select class="select">
+        <option>下拉菜单</option>
+        <option>菜单1</option>
+       </select>
+       <input type="text" class="textbox textbox_225" placeholder="输入产品关键词或产品货号..."/>
+       <input type="button" value="查询" class="group_btn"/>
+      </section>
+      <table class="table">
+
+       <tr>
+        <th>缩略图</th>
+        <th>产品名称</th>
+        <th>编号</th>
+        <th>单价</th>
+        <th>颜色</th>
+         <th>尺码</th>
+         <th>容量</th>
+         <th>款式</th>
+        <th>库存</th>
+        <th>操作</th>
+       </tr>
+
+       <tr>
+        <td class="center"><img src="{{p.picture}}" width="50" height="50"/></td>
+        <td>{{p.mername}}</td>
+        <td class="center">{{p.mid}}</td>
+        <td class="center"><strong class="rmb_icon">{{p.money}}</strong></td>
+<td class="center">{{p.color}}</td>
+           <td class="center">{{p.size}}</td>
+           <td class="center">{{p.capacity}}</td>
+           <td class="center">{{p.kuanshi}}</td>
+        <td class="center">{{p.kucun}}</td>
+
+
+       </tr>
+
+      </table>
+
+ </div>
+</section>
+{% endblock content %}

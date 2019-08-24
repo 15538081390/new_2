@@ -1,0 +1,56 @@
+{% extends "manage/base.html" %}
+{% block content %}
+
+
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">订单列表示例</h2>
+       <a class="fr top_rt_btn add_icon">添加商品</a>
+      </div>
+      <section class="mtb">
+       <select class="select">
+        <option>订单状态</option>
+        <option>待付款</option>
+        <option>待发货</option>
+        <option>待评价</option>
+       </select>
+       <input type="text" class="textbox textbox_225" placeholder="输入订单编号或收件人姓名/电话..."/>
+       <input type="button" value="查询" class="group_btn"/>
+      </section>
+      <table class="table">
+       <tr>
+        <th>订单编号</th>
+        <th>收件人</th>
+        <th>联系电话</th>
+        <th>收件人地区</th>
+        <th>收件人街道</th>
+        <th>订单金额</th>
+        <th>配送方式</th>
+        <th>操作</th>
+       </tr>
+        {% for bill in bills %}
+
+       <tr>
+        <td class="center">{{bill.bianhao}}</td>
+        <td>{{bill.user}}</td>
+        <td>{{bill.phone}}</td>
+        <td>
+         <address>{{bill.addr}}</address>
+        </td>
+           <td>
+         <address>{{bill.street}}</address>
+        </td>
+        <td class="center"><strong class="rmb_icon">{{bill.summoney2}}</strong></td>
+        <td class="center">申通快递</td>
+        <td class="center">
+         <a href="{% url "manage:bill" %}" title="查看订单" class="link_icon" target="_blank">&#118;</a>
+         <a href="{% url "manage:deletebill" bill.bianhao %}" title="删除" class="link_icon">&#100;</a>
+        </td>
+       </tr>
+     {% endfor %}
+
+      </table>
+ </div>
+</section>
+{% endblock content %}

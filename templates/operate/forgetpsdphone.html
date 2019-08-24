@@ -1,0 +1,116 @@
+{% extends 'operate/changename.html' %}
+{% load static %}
+{% block title %}
+        <title ng-bind="$root.title + &#39; - Smartisan&#39;" class="ng-binding">忘记密码 - Smartisan</title>
+{% endblock title %}
+{% block nav %}
+<div class="dialog dialog-shadow" style="display: block; margin-top: -250.5px;">
+        <div class="title" ng-class="loginLogoClass">
+            <div ng-show="is1111" class="return-btn ng-hide" ng-click="backToLast()"></div>
+            <h4 ng-bind="dialogTitle" class="ng-binding">忘记密码</h4><a class="close"></a></div><!-- ngView:  -->
+        <div class="content ng-scope ng-animate" ng-view="" ng-animate-children="" style="height: auto; opacity: 1;">
+            <form name="form" ng-switch="current" novalidate="" method="post" autocomplete="off"
+                  class="ng-scope ng-pristine ng-invalid ng-invalid-required"><!-- ngSwitchDefault:  -->
+                <!-- ngSwitchWhen: cellphone -->
+                <div class="valid-mobile animate-switch ng-scope ng-animate" ng-switch-when="cellphone">
+                    <ul class="common-form">
+                        <li class="username">
+                        <div class="input" ><input type="text" name="phone">
+                            <span class="warning" id = "error" style="display: none; opacity: 1;"></span>
+
+                        </div>
+                        </li>
+                        <li class="verification">
+                            <div class="input"><span class="icon"><i>短信验证码</i></span> <span
+                                    class="placeholder">短信验证码</span> <input type="text" name="verification"
+                                                                            ng-model="user.verification" required=""
+                                                                            i-input="" i-focus="" limit-length="6"
+                                                                            i-response="" i-enter="mobileNext()"
+                                                                            class="ng-pristine ng-invalid ng-invalid-required ng-valid-mobile-captcha-valid ng-valid-mobile-captcha-reload">
+                                <span class="warning" id = "error" style="display: none; opacity: 1;"></span>
+                            </div>
+                            <div class="btn btn-default" ng-show="!showBtn"><input class="getcode" id = 'chick' type = "button" value="获取验证码"
+                                                                                            onclick="settime(this)" style="height: 45px; width: 130px; border: none;"></div>
+                        </li>
+                    </ul>
+                    <div class="btn-wrapper">
+                                             <input class="btn btn-primary" type="submit" id = "submit" style="background: #4f70b3 ; border: none ; color: white" value="下一步">
+                    </div>
+                </div><!-- ngSwitchWhen: email --><!-- ngSwitchWhen: secques --></form>
+        </div>
+    </div>
+{% endblock nav %}
+{% block js %}
+    <script type="text/javascript">
+    var countdown=60;
+    function settime(obj) {
+        if (countdown == 0) {
+            obj.removeAttribute("disabled");    
+            obj.value="获取验证码";
+            countdown = 60;
+            return;
+        } else {
+            obj.setAttribute("disabled", true);
+            obj.value="重新发送(" + countdown + ")";
+            countdown--;
+        }
+        setTimeout(function() {
+            settime(obj) }
+               ,1000)
+            }
+    $("#chick").on("click", function(){
+		var number = $.trim($("input[name=phone]").val());
+		$.ajax({
+	        url:"{% url 'operate:code' %}" ,
+	        async : true,
+	        type: "post",
+	        dataType: "json",
+	        data: {"phone":number},
+	        success: function (data) {
+	        	if(data == 'fail'){
+	        		alert("发送验证码失败");
+	        		return false;
+	        	}
+	        }
+    	});
+	});
+</script>
+<script type="text/javascript">
+	//提交
+	$("#submit").on("click", function(){
+		var data = {};
+		data.phone = $.trim($("input[name=phone]").val());
+		data.code = $.trim($("input[name=verification]").val());
+		var error = document.getElementById('error');
+		if (data.code == ''){
+		    error.innerHTML='请输入验证码!';
+		    $('#error').css('display','inline');
+            return false;
+        }
+		if (data.phone == ''){
+		    error.innerHTML='请输入手机号!';
+		    $('#error').css('display','inline');
+            return false;
+        }
+		if (!(/^1[3|4|5|7|8]\d{9}$/.test(data.phone))) {
+            error.innerHTML='手机号格式有误.';
+            $('#error').css('display','inline');
+            return false;
+        }
+
+		$.ajax({
+	        type:"POST",
+            data: {phone:data.phone, code:data.verification},
+            url: "{% url 'operate:rephonecheck' %}",
+            cache: false,
+            dataType: "html",
+            success:function () {
+
+            }
+        })
+
+	})
+
+</script>
+<script type="text/javascript">{{script}}('{{wrong}}')</script>
+{% endblock js %}

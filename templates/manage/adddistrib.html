@@ -1,0 +1,43 @@
+{% extends 'manage/base.html' %}
+{% block content %}
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">添加配送方式</h2>
+       <a class="fr top_rt_btn" href="{% url "manage:distrib" %}">返回配送列表</a>
+      </div>
+     <section>
+         <form action="{% url "manage:adddistrib" %}" method="post" enctype="multipart/form-data">
+      <ul class="ulColumn2">
+       <li>
+        <span class="item_name" style="width:120px;">配送名称：</span>
+        <input type="text" name="name" class="textbox textbox_295" placeholder="配送名称..."/>
+
+       </li>
+
+
+       <li>
+        <span class="item_name" style="width:120px;">上传图片：</span>
+        <label class="uploadImg">
+         <input type="file" name="picture"/>
+         <span>上传图片</span>
+        </label>
+       </li>
+
+          <li>
+        <span class="item_name" style="width:120px;">详细描述：</span>
+        <input type="textarea" class="textbox textbox_295" name="instro" style="width: 400px;height:100px " placeholder="详细信息..."/>
+
+       </li>
+
+
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+         </form>
+     </section>
+ </div>
+</section>
+{% endblock content %}

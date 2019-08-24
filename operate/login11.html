@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+{#        <meta name="author" content="order by dede58.com"/>#}
+		<title>用户登录-smartisan</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/login_register/login.css' %}">
+        <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+	</head>
+	<body>
+		<!-- login -->
+		<div class="top center">
+			<div class="logo center">
+				<a href="{% url 'app:index' %}" target="_blank"><img src="{% static 'image/login_register/smartisan_4ada7fecea.png' %}" alt=""></a>
+			</div>
+		</div>
+{#        action="{% url 'operate:login' %}"#}
+		<form  name = 'form1' method="post" action= '' class="form center">
+		<div class="login">
+			<div class="login_center">
+				<div class="login_top">
+                    <form method = "post">
+                    <div class="left fl">用户登录 <a style="font-size: 2px; color: red;" href="{% url 'operate:forgetpsdphone' %}">忘记密码</a></div>
+					</form>
+                    <div class="right fr">还未拥有锤子ID<a href="{% url 'operate:register' %}" target="_self">立即注册</a></div>
+					<div class="clear"></div>
+					<div class="xian center"></div>
+				</div>
+				<div class="login_main center">
+					<div class="username">手机号:&nbsp;<input class="shurukuang" style = 'width : 150px' type="text" name="phone" placeholder="请输入你的手机号"/><span class = 'error1' style = 'color : red'></span></div>
+					<div class="username">密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input class="shurukuang" style = 'width : 150px' type="password" name="password" placeholder="请输入你的密码"/><span class = 'error2' style = 'color : red'></span></div>
+					<div class="username">
+						<div class="left fl">验证码:&nbsp;<input class="yanzhengma" style = 'width : 150px' type="text" name="code" placeholder="请输入验证码"/></div>
+                        <div class="right fl"><img src="{% url 'operate:generatecode' %}" alt="" onclick="this.src='{% url 'operate:generatecode' %}?'+Math.random()"></div>
+						<div class="clear"><span class = 'error3' style = 'color : red'></span></div>
+					</div>
+				</div>
+				<div class="login_submit">
+					<input class="submit" type="submit" name="submit" value="立即登录" >
+				</div>
+				
+			</div>
+		</div>
+		</form>
+		<footer>
+			<div class="copyright">Copyright&nbsp;©&nbsp;2019&nbsp;smartisan.com&nbsp;版权所有<img src="{% static 'image/login_register/ghs.png' %}" alt=""><a href="http://www.miibeian.gov.cn/" target="_blank"><span>京 ICP 备 18020659 号 - 2</span></a></div>
+
+		</footer>
+	</body>
+<script type="text/javascript">
+$(function(){
+	//提交
+	$(".submit").on("click", function(){
+		var data = {};
+		data.userphone= $.trim($("input[name=phone]").val());
+		data.password = $.trim($("input[name=password]").val());
+		data.code = $.trim($("input[name=code]").val());
+		var error1 = document.querySelector('.error1');
+		var error2 = document.querySelector('.error2');
+		var error3 = document.querySelector('.error3');
+		if (data.userphone == ''){
+		    error1.innerHTML='手机号不能为空!';
+            return false;
+        }
+		if (!(/^1[3|4|5|7|8]\d{9}$/.test(data.userphone))) {
+            error1.innerHTML='手机号格式有误.';
+            return false;
+        }
+		if (data.password == ''){
+		    error2.innerHTML='密码不能为空！';
+		    return false;
+        }
+		if (data.code == ''){
+		    error3.innerHTML = '请输入验证码';
+		    return false;
+        }
+		if (data.code.length != 4){
+            error3.innerHTML = '请正确输入验证码';
+            return false;
+        }
+
+          $.ajax({
+                    type:"POST",
+                    data: {phone:data.userphone,code:data.code,password:data.password},
+                    url: "{% url 'operate:login' %}",
+                    cache: false,
+                    dataType: "html",
+                    success: function(result){
+                        if (result == '用户名或密码错误') {
+                            alert(result);
+                            window.location.href='{% url 'operate:login' %}';
+                        }
+
+                    },
+                    error: function(){
+                        alert("false");
+                    }
+                });
+	})
+});
+</script>
+</html>

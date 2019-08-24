@@ -1,0 +1,71 @@
+{% extends "manage/base.html" %}
+
+{% block content %}
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">订单详情示例</h2>
+      </div>
+  {% for bill in bills %}
+      <table class="table">
+
+
+       <tr>
+        <td>收件人：{{bill.user}}</td>
+        <td>联系电话：{{bill.phone}}</td>
+        <td>收件地址：{{bill.addr}}</td>
+        <td>收件街道：{{bill.street}}</td>
+        <td>付款时间：{{bill.time}}</td>
+       </tr>
+       <tr>
+        <td>下单时间：{{bill.time}}</td>
+        <td>确认时间：{{bill.time}}</td>
+        <td>订单总价：{{bill.summoney2}}</td>
+        <td>订单编号：{{bill.bianhao}}</td>
+       </tr>
+       <tr>
+        <td>订单状态：<a>{{bill.state}}</a></td>
+        <td colspan="3">订单备注：<mark>{{ bill.remarks }}</mark></td>
+        </tr>
+      </table>
+
+
+         {% for b in allbill %}
+             {% ifequal b.bianhao bill.bianhao %}
+      <table class="table">
+       <tr>
+        <td class="center"><img src="{{b.picture}}" width="50" height="50"/></td>
+        <td>{{b.name}}</td>
+
+        <td class="center"><strong class="rmb_icon">{{b.price}}</strong></td>
+
+        <td class="center"><strong>{{b.sum}}</strong></td>
+        <td class="center"><strong class="rmb_icon">{{b.summoney}}</strong></td>
+
+       </tr>
+
+
+
+
+      </table>
+          {% endifequal %}
+
+         {% endfor %}
+      <br>
+      <br>
+      <br>
+ {% endfor %}
+
+      <aside class="mtb" style="text-align:right;">
+       <label>管理员操作：</label>
+       <input type="text" class="textbox textbox_295" placeholder="管理员操作备注"/>
+       <input type="button" value="打印订单" class="group_btn"/>
+       <input type="button" value="确认订单" class="group_btn"/>
+       <input type="button" value="付款" class="group_btn"/>
+       <input type="button" value="配货" class="group_btn"/>
+       <input type="button" value="发货" class="group_btn"/>
+       <input type="button" value="确认收货" class="group_btn"/>
+      </aside>
+ </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+{#        <meta name="author" content="order by dede58.com"/>#}
+		<title>用户注册</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/login_register/login.css' %}">
+        <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+	</head>
+	<body>
+         <form  class = 'form1' method="post" action="{% url 'operate:register' %}">
+		<div class="regist">
+			<div class="regist_center">
+				<div class="regist_top">
+					<div class="left fl">用户注册</div>
+					<div class="right fr"><a href="{% url 'app:index' %}" target="_self">锤子首页</a></div>
+					<div class="clear"></div>
+					<div class="xian center"></div>
+				</div>
+				<div class="regist_main center">
+                    <div class="username">用&nbsp;&nbsp;户&nbsp;&nbsp;名:&nbsp;&nbsp;<input class="shurukuang" type="text" id = 'exampleInputname' name="username" placeholder="请输入你的用户名" maxlength="10"/><span class="error1">请输入3-10个字符</span></div>
+
+                    <div class="username">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;&nbsp;<input class="shurukuang" type="password" id = 'exampleInputpsw' name="password" placeholder="请输入你的密码" /><span class="error2">请输入6-10个字符</span></div>
+
+                    <div class="username">确认密码:&nbsp;&nbsp;<input class="shurukuang" id = 'exampleInputrepsw' type="password" name="repassword" placeholder="请确认你的密码"/><span class="error3">两次密码要输入一致哦</span></div>
+
+                    <div class="username">手&nbsp;&nbsp;机&nbsp;&nbsp;号:&nbsp;&nbsp;<input class="shurukuang" type="text" id = 'exampleInputphone' name="tel" placeholder="请填写正确的手机号 " minlength="11"/><span class="error4" style = 'color : red'></span></div>
+
+                    <div class="username">
+                        <div class="left fl">验&nbsp;&nbsp;证&nbsp;&nbsp;码:&nbsp;&nbsp;<input class="yanzhengma" type="text" id = 'exampleInputcode' name="code" placeholder="请填写收到的验证码"/><input class="getyanzhengma" id = 'chick' type = "button" value="获取验证码"
+                                                                                                                                                                                                                                       onclick="settime(this)">
+                            <span class="error5" style = 'color : red'></span></div>
+                        <div class="clear"></div>
+					</div>
+                        <div class="regist_submit">
+					<input class="submit" type="submit" name="submit" value="立即注册" >
+				        </div>
+                </div>
+			</div>
+		</div>
+         </form>
+	</body>
+
+{#<script>#}
+{#    $(document).ready(function () {#}
+{#        $('#form1').button(function () {#}
+{#            var phone = $('#exampleInputphone').val()#}
+{##}
+{#            $.ajax({ type:"POST",#}
+{#                    data: {phone:phone},#}
+{#                    url: "{% url 'operate:code' %}",#}
+{#                    cache: false,#}
+{#                    dataType: "html",#}
+{#                    success:function(result, statues, xml){#}
+{#                        console.log(result)#}
+{#                    },#}
+{#                    error: function(){#}
+{#                        alert("false");#}
+{#                    }#}
+{#            })#}
+{##}
+{#        })#}
+{##}
+{#    })#}
+{#</script>#}
+<script type="text/javascript">
+    var countdown=60;
+    function settime(obj) {
+        if (countdown == 0) {
+            obj.removeAttribute("disabled");    
+            obj.value="获取验证码";
+            countdown = 60;
+            return;
+        } else {
+            obj.setAttribute("disabled", true);
+            obj.value="重新发送(" + countdown + ")";
+            countdown--;
+        }
+setTimeout(function() {
+    settime(obj) }
+    ,1000)
+}
+ 
+</script>
+<script type="text/javascript">
+$(function(){
+	//发送验证码
+	$("#chick").on("click", function(){
+		var number = $("input[name=tel]").val();
+		var error = document.querySelector('.error4');
+		if (number == "") {
+            error.innerHTML='手机号不能为空!';
+            return false;
+        }
+        if (!(/^1[3|4|5|7|8]\d{9}$/.test(number))) {
+            error.innerHTML='手机号格式有误.';
+            return false;
+        }
+		$.ajax({
+	        url:"{% url 'operate:code' %}" ,
+	        async : true,
+	        type: "post",
+	        dataType: "json",
+	        data: {"phone":number},
+	        success: function (data) {
+	        	if(data == 'fail'){
+	        		alert("发送验证码失败");
+	        		return false;
+	        	}
+	        }
+    	});
+	});
+	//提交
+	$(".submit").on("click", function(){
+		var data = {};
+		data.userId = $.trim($("input[name=username]").val());
+		data.password = $.trim($("input[name=password]").val());
+		data.repassword = $.trim($("input[name=repassword]").val());
+		data.phone = $.trim($("input[name=tel]").val());
+		data.verifyCode = $.trim($("input[name=code]").val());
+		var error1 = document.querySelector('.error1');
+		var error2 = document.querySelector('.error2');
+		var error3 = document.querySelector('.error3');
+		$('.error1').css('color','red');
+		$('.error2').css('color','red');
+		$('.error3').css('color','red');
+		if (data.userId == ''){
+		    error1.innerHTML='用户名不能为空!';
+            return false;
+        }
+		if (!(data.userId.length >= 3 && data.userId.length <= 10)){
+		    error1.innerHTML = '请输入正确字符（3-10）';
+            return false;
+        }
+		if (data.password == ''){
+		    error2.innerHTML='密码不能为空！';
+		    return false
+        }
+		if (!(data.password.length >= 6 && data.password.length <= 10)){
+		    error2.innerHTML = '请输入正常密码长度(6-10)'
+            return false
+        }
+		if (data.repassword == ''){
+		    error3.innerHTML='请再次输入密码！';
+		    return false
+        }
+		if (data.repassword != data.password){
+		    error3.innerHTML='两次输入不一致！';
+		    return false
+        }
+		if (data.verifyCode == ''){
+		    error5.innerHTML = '请输入验证码';
+		    return false
+        }
+		if (data.verifyCode.length != 6){
+            error5.innerHTML = '请正确输入验证码'
+        }
+		$.ajax({
+	        url: "{% url 'operate:register' %}",
+	        async : true,
+	        type: "post",
+	        dataType: "json",
+	        data: data,
+	        success: function (data) {
+	        	if(data == 'fail'){
+	        		alert("注册失败");
+	        		return ;
+	        	}
+	        	alert("注册成功");
+
+	        }
+    	});
+	})
+});
+</script>
+
+</html>

@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0094)https://account.smartisan.com/#/modifyPassword?return_url=https:%2F%2Fwww.smartisan.com%2Fuser -->
+<html lang="zh" ng-app="accountApp" class="ng-scope">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-block-transitions {
+        transition: 0s all !important;
+        -webkit-transition: 0s all !important;
+    }
+
+    .ng-hide-add-active, .ng-hide-remove {
+        display: block !important;
+    }</style>
+    <meta name="keywords" content="锤子商城, 智能手机, 用户体验">
+    <meta name="description">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title ng-bind="$root.title + &#39; - Smartisan&#39;" class="ng-binding">修改密码 - Smartisan</title>
+    <link href="https://static.smartisanos.cn/common/img/favicon.ico" rel="shortcut icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_114.png" rel="apple-touch-icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_76.png" sizes="76x76" rel="apple-touch-icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_120.png" sizes="120x120" rel="apple-touch-icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_152.png" sizes="152x152" rel="apple-touch-icon">
+    <link rel="stylesheet" href="{% static 'css/userform/main_1666763a09.css' %}">
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <script async="" src="./修改密码 - Smartisan_files/gtm.js"></script>
+    <script src="./修改密码 - Smartisan_files/jweixin-1.3.2.js"></script>
+    <script src="./修改密码 - Smartisan_files/update-browser.js"></script>
+</head>
+<body class="v2" ng-class="pageClass" style="">
+<div class="wrapper ng-scope" ng-controller="MainCtrl"
+     ng-class="{ &#39;cloud&#39;: isEmbedCloud, &#39;bbs&#39;: isEmbedBbs, &#39;bbs-tmp&#39;: isEmbedBbsTmp, &#39;settings&#39;: isSettings, &#39;guest&#39;: isGuestLogin, &#39;avatar&#39;: isModifyAvatar, &#39;notes&#39;: isEmbedNotes, &#39;contacts&#39;: isEmbedContacts, &#39;radar&#39;: isEmbedRadar, &#39;four-1&#39;: is1111}">
+    <div class="dialog dialog-shadow" style="display: block; margin-top: -205px;">
+        <div class="title" ng-class="loginLogoClass">
+            <div ng-show="is1111" class="return-btn ng-hide" ng-click="backToLast()"></div>
+            <h4 ng-bind="dialogTitle" class="ng-binding">修改密码</h4><a class="close"></a></div><!-- ngView:  -->
+        <div class="content ng-scope" ng-view="" ng-animate-children="" style="height: auto; opacity: 1;">
+            <form class="mod-password ng-scope ng-pristine ng-invalid ng-invalid-required" name="form" novalidate=""
+                  autocomplete="off">
+                <ul class="common-form"><!-- ngIf: oldRequired -->
+                    <li class="password">
+                        <div class="input" i-animation="errAnimation.password"><span class="placeholder">新密码</span>
+                            <input type="password" name="password" id="password" ng-model="user.password" required=""
+                                   ng-trim="false" i-input="" i-focus="" i-password=""
+                                   class="ng-pristine ng-invalid ng-invalid-required">
+                            <span class="warning" id = "error1" style="display: none; opacity: 1;"></span>
+
+                        </div>
+                        <div class="tips no-icon" i-show="form.password.$focused || password_mousedown"
+                             i-label="#password" style="opacity: 0; display: none;"><span class="delta"></span> <span
+                                class="deltapatch"></span> <span class="warningicon"></span>
+                            <div class="verifycon"><p>密码长度 6~16 位，数字、字母和符号至少包含两种</p></div>
+                        </div>
+                    </li>
+                    <li class="password-repeat">
+                        <div class="input" i-animation="errAnimation.repassword"><span class="placeholder">重复新密码</span>
+                            <input type="password" name="repassword" id="repassword" ng-model="user.repassword"
+                                   required="" ng-trim="false" i-input="" i-focus="" i-password-format=""
+                                   i-repassword="" i-enter="modify()"
+                                   class="ng-pristine ng-invalid ng-invalid-required">
+                                                       <span class="warning" id = "error2" style="display: none; opacity: 1;"></span>
+
+                        </div>
+                        <div class="tips no-icon" i-show="form.repassword.$focused || repassword_mousedown"
+                             i-label="repassword" style="opacity: 0; display: none;"><span class="delta"></span> <span
+                                class="deltapatch"></span> <span class="warningicon"></span>
+                            <div class="verifycon"><p>密码长度 6~16 位，数字、字母和符号至少包含两种</p></div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn-wrapper">
+                    <input class="btn btn-primary" type="submit" id = "submit" style="background: #4f70b3 ; border: none ; color: white; width: 370px" value="确定更改密码">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="loading" style="display: none;"></div>
+    <div class="copyright">
+        <div class="clearfix"><h2>Copyright&nbsp;©&nbsp;2019&nbsp;smartisan.com&nbsp;版权所有</h2>
+            <ul class="privacy">
+                <li><a href="http://www.smartisan.com/support/#/agreement">法律声明</a></li>
+                <li><a href="http://www.smartisan.com/support/#/privacy">隐私条款</a></li>
+            </ul>
+        </div>
+        <h4><a href="http://www.miibeian.gov.cn/" target="_blank"><span>京 ICP 备 18020659 号 - 2</span></a></h4></div>
+</div>
+<div class="m-dialog">
+    <div class="m-dialog-backdrop"></div>
+    <div class="m-dialog-modal">
+        <div class="m-dialog-content">
+            <div class="m-dialog-header"><span class="close" data-dismiss="true">×</span><h4
+                    class="m-dialog-headline"></h4></div>
+            <div class="m-dialog-body"></div>
+        </div>
+    </div>
+</div>
+<script src="./修改密码 - Smartisan_files/dep_32beeb2256.js"></script>
+<script src="./修改密码 - Smartisan_files/app_5f9f0a9cbe.js"></script>
+<script src="./修改密码 - Smartisan_files/template_d14b18bf4b.js"></script>
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TBDW8K" height=0 width=0
+            style=display:none;visibility:hidden></iframe>
+</noscript>
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+        '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-TBDW8K');</script>
+</body>
+<script type="text/javascript">
+	//提交
+	$("#submit").on("click", function(){
+		var data = {};
+		data.password = $.trim($("input[name=password]").val());
+		data.repassword = $.trim($("input[name=repassword]").val());
+		var error1 = document.getElementById('error1');
+		var error2 = document.getElementById('error2');
+		if (data.password == ''){
+		    error2.innerHTML='请输入新的密码!';
+		    $('#error1').css('display','inline');
+            return false;
+        }
+		if (data.repassword == ''){
+		    error2.innerHTML='请再次输入密码!';
+		    $('#error2').css('display','inline');
+            return false;
+        }
+		if (!(data.password.length >= 6 && data.password.length <= 10)){
+		    error1.innerHTML = '请输入正常密码长度(6-10)';
+		    $('#error1').css('display','inline');
+            return false;
+        }
+		if (data.repassword != data.password){
+		    error2.innerHTML='两次输入不一致！';
+		    $('#error2').css('display','inline');
+		    return false;
+        }
+		$.ajax({
+	        type:"POST",
+            data: { password : data.password},
+            url: "{% url 'operate:forgetpsd' %}",
+            cache: false,
+            dataType: "html",
+	        error: function(){
+                        alert("false");
+                    }
+
+	        })
+	})
+
+</script>
+</html>

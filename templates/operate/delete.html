@@ -1,0 +1,30 @@
+ {% for s in shopcar %}
+
+                                    <div class="sub_content fl ">
+                                        <input type="checkbox" value="{{ s.mid }}" class="" name="shure"
+                                        />
+                                    </div>
+                                    <div class="sub_content fl"><img src="{{ s.picture }}" style="width: 90%"></div>
+                                    <div class="sub_content fl ft20">{{ s.name }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ s.price }}</div>
+
+
+                                    <div class="sub_content fl "><input type="button" id="plus{{ s.mid }}" value="+"
+                                                                        style="border-radius: 50%;width: 17px;border:solid 0.5px;background-color: white"><input
+                                            type="text" id="text1{{ s.mid }}" value="1"
+                                            style="border-style:none;width: 10px;"/><input
+                                            style="border-radius: 50%;width: 17px;border:solid 0.5px;background-color: white"
+                                            type="button" id="subtract{{ s.mid }}" value="-">
+
+                                    </div>
+
+
+                                    <div class="sub_content fl"><input type="text" id="money{{ s.mid }}"
+                                                                       value="{{ s.price }}" style="border-style:none"
+                                                                       name="{{ s.mid }}"/></div>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <button id="delete{{ s.sid }}" value="{{ s.sid }}"
+                                            style="border:none;position: relative;top:50px;background-color: white"><a
+                                            href="">×</a></button>
+                                    <div class="clear"></div>
+
+                            {% endfor %}

@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0104)https://account.smartisan.com/#/modifyQuestion?return_url=https:%2F%2Fwww.smartisan.com%2Fuser%2Faccount -->
+<html lang="zh" ng-app="accountApp" class="ng-scope">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-block-transitions {
+        transition: 0s all !important;
+        -webkit-transition: 0s all !important;
+    }
+
+    .ng-hide-add-active, .ng-hide-remove {
+        display: block !important;
+    }</style>
+    <meta name="keywords" content="锤子商城, 智能手机, 用户体验">
+    <meta name="description">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title ng-bind="$root.title + &#39; - Smartisan&#39;" class="ng-binding">设置安全问题 - Smartisan</title>
+    <link href="https://static.smartisanos.cn/common/img/favicon.ico" rel="shortcut icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_114.png" rel="apple-touch-icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_76.png" sizes="76x76" rel="apple-touch-icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_120.png" sizes="120x120" rel="apple-touch-icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_152.png" sizes="152x152" rel="apple-touch-icon">
+    <link rel="stylesheet" href="{% static 'css/userform/main_1666763a09.css' %}">
+    <script async="" src="./设置安全问题 - Smartisan_files/gtm.js"></script>
+    <script src="./设置安全问题 - Smartisan_files/jweixin-1.3.2.js"></script>
+    <script src="./设置安全问题 - Smartisan_files/update-browser.js"></script>
+</head>
+<body class="v2 modify-question" ng-class="pageClass" style="">
+<div class="wrapper ng-scope" ng-controller="MainCtrl"
+     ng-class="{ &#39;cloud&#39;: isEmbedCloud, &#39;bbs&#39;: isEmbedBbs, &#39;bbs-tmp&#39;: isEmbedBbsTmp, &#39;settings&#39;: isSettings, &#39;guest&#39;: isGuestLogin, &#39;avatar&#39;: isModifyAvatar, &#39;notes&#39;: isEmbedNotes, &#39;contacts&#39;: isEmbedContacts, &#39;radar&#39;: isEmbedRadar, &#39;four-1&#39;: is1111}">
+    <div class="dialog dialog-shadow" style="display: block; margin-top: -259px;">
+        <div class="title" ng-class="loginLogoClass">
+            <div ng-show="is1111" class="return-btn ng-hide" ng-click="backToLast()"></div>
+            <h4 ng-bind="dialogTitle" class="ng-binding">设置安全问题</h4><a class="close"></a></div><!-- ngView:  -->
+        <div class="content ng-scope" ng-view="" ng-animate-children="" style="height: auto; opacity: 1;">
+            <form name="form" class="mod-question ng-scope ng-invalid ng-invalid-required ng-invalid-question1 ng-dirty"
+                  novalidate="" autocomplete="off">
+                <dl>
+                    <dt>问题一</dt>
+                    <dd>
+                        <div class="select" i-animation="errAnimation.question1"><select name="question1"
+                                                                                         ng-model="question.question1"
+                                                                                         ng-class="{&#39;invalid&#39;: util.submitted &amp;&amp; question1Required}"
+                                                                                         required=""
+                                                                                         ng-change="updateQuestion()"
+                                                                                         ng-options="option.v for option in questionsOne track by option.k"
+                                                                                         class="ng-animate ng-valid-required ng-dirty ng-valid ng-valid-question1"
+                                                                                         style="">
+                            <option value="">请选择</option>
+                            <option value="1">你的出生城市是？</option>
+                            <option value="2">你父亲的姓名是？</option>
+                            <option value="3">你父亲的生日是？</option>
+                            <option value="4">你母亲的姓名是？</option>
+                            <option value="5">你母亲的生日是？</option>
+                            <option value="6">你配偶的姓名是？</option>
+                            <option value="7">你配偶的生日是？</option>
+                            <option value="8">你孩子的姓名是？</option>
+                            <option value="9">你小学的学校名称是？</option>
+                            <option value="10">你初中的学校名称是？</option>
+                            <option value="11">你高中的学校名称是？</option>
+                            <option value="12">你的大学学号是？</option>
+                            <option value="13">你的工号是？</option>
+                        </select></div>
+                        <div class="input" i-animation="errAnimation.answer1"><span class="placeholder">答案</span> <input
+                                type="text" id="answer1" name="answer1" ng-model="question.answer1" required=""
+                                i-input="" i-focus="" ng-maxlength="20"
+                                class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength"> <span
+                                class="warning"
+                                i-warning="form.answer1.$submitted &amp;&amp; form.answer1.$error.required">请输入答案</span>
+                            <span class="warning"
+                                  i-warning="form.answer1.$blurred &amp;&amp; form.answer1.$error.maxlength">输入的内容超长</span>
+                        </div>
+                        <div class="tips no-icon" i-show="form.answer1.$focused || answer1_mousedown" i-label="answer1"
+                             style="opacity: 0; display: none;"><span class="delta"></span> <span
+                                class="deltapatch"></span> <span class="warningicon"></span>
+                            <div class="verifycon"><p>答案长度1~20位，可以是数字、字母等任意字符</p></div>
+                        </div>
+                    </dd>
+                    <dt>问题二</dt>
+                    <dd>
+                        <div class="select" i-animation="errAnimation.question2"><select name="question2"
+                                                                                         ng-model="question.question2"
+                                                                                         ng-class="{&#39;invalid&#39;: util.submitted &amp;&amp; question2Required}"
+                                                                                         required=""
+                                                                                         ng-change="updateQuestion()"
+                                                                                         ng-options="option.v for option in questionsTwo track by option.k"
+                                                                                         class="ng-pristine ng-animate ng-invalid-required-remove ng-valid-required-add ng-invalid-required-remove-active ng-valid-required ng-valid-required-add-active ng-invalid ng-invalid-question1"
+                                                                                         style="">
+                            <option value="">请选择</option>
+                            <option value="2">你父亲的姓名是？</option>
+                            <option value="3">你父亲的生日是？</option>
+                            <option value="4">你母亲的姓名是？</option>
+                            <option value="5">你母亲的生日是？</option>
+                            <option value="6">你配偶的姓名是？</option>
+                            <option value="7">你配偶的生日是？</option>
+                            <option value="8">你孩子的姓名是？</option>
+                            <option value="9">你小学的学校名称是？</option>
+                            <option value="10">你初中的学校名称是？</option>
+                            <option value="11">你高中的学校名称是？</option>
+                            <option value="12">你的大学学号是？</option>
+                            <option value="13">你的工号是？</option>
+                        </select></div>
+                        <div class="input" i-animation="errAnimation.answer2"><span class="placeholder">答案</span> <input
+                                type="text" id="answer2" name="answer2" ng-model="question.answer2" required=""
+                                i-input="" i-focus="" ng-maxlength="20"
+                                class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength"> <span
+                                class="warning"
+                                i-warning="form.answer2.$submitted &amp;&amp; form.answer2.$error.required">请输入答案</span>
+                            <span class="warning"
+                                  i-warning="form.answer2.$blurred &amp;&amp; form.answer2.$error.maxlength">输入的内容超长</span>
+                        </div>
+                        <div class="tips no-icon" i-show="form.answer2.$focused || answer2_mousedown" i-label="answer2"
+                             style="opacity: 0; display: none;"><span class="delta"></span> <span
+                                class="deltapatch"></span> <span class="warningicon"></span>
+                            <div class="verifycon"><p>答案长度1~20位，可以是数字、字母等任意字符</p></div>
+                        </div>
+                    </dd>
+                    <dt>问题三</dt>
+                    <dd>
+                        <div class="select" i-animation="errAnimation.question3"><select name="question3"
+                                                                                         ng-model="question.question3"
+                                                                                         ng-class="{&#39;invalid&#39;: util.submitted &amp;&amp; question3Required}"
+                                                                                         required=""
+                                                                                         ng-change="updateQuestion()"
+                                                                                         ng-options="option.v for option in questionsThree track by option.k"
+                                                                                         class="ng-pristine ng-animate ng-invalid-required-remove ng-valid-required-add ng-invalid-required-remove-active ng-valid-required ng-valid-required-add-active ng-invalid ng-invalid-question1"
+                                                                                         style="">
+                            <option value="">请选择</option>
+                            <option value="2">你父亲的姓名是？</option>
+                            <option value="3">你父亲的生日是？</option>
+                            <option value="4">你母亲的姓名是？</option>
+                            <option value="5">你母亲的生日是？</option>
+                            <option value="6">你配偶的姓名是？</option>
+                            <option value="7">你配偶的生日是？</option>
+                            <option value="8">你孩子的姓名是？</option>
+                            <option value="9">你小学的学校名称是？</option>
+                            <option value="10">你初中的学校名称是？</option>
+                            <option value="11">你高中的学校名称是？</option>
+                            <option value="12">你的大学学号是？</option>
+                            <option value="13">你的工号是？</option>
+                        </select></div>
+                        <div class="input" i-animation="errAnimation.answer3"><span class="placeholder">答案</span> <input
+                                type="text" id="answer3" name="answer3" ng-model="question.answer3" required=""
+                                i-input="" i-focus="" ng-maxlength="20"
+                                class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength"> <span
+                                class="warning"
+                                i-warning="form.answer3.$submitted &amp;&amp; form.answer3.$error.required">请输入答案</span>
+                            <span class="warning"
+                                  i-warning="form.answer3.$blurred &amp;&amp; form.answer3.$error.maxlength">输入的内容超长</span>
+                        </div>
+                        <div class="tips no-icon" i-show="form.answer3.$focused || answer3_mousedown" i-label="answer3"
+                             style="opacity: 0; display: none;"><span class="delta"></span> <span
+                                class="deltapatch"></span> <span class="warningicon"></span>
+                            <div class="verifycon"><p>答案长度1~20位，可以是数字、字母等任意字符</p></div>
+                        </div>
+                    </dd>
+                </dl>
+                <div class="btn-wrapper">
+                    <div class="btn btn-primary disabled" ng-class="{&#39;disabled&#39;:form.$invalid}"
+                         ng-click="next()"><a>下一步</a></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="loading" style="display: none;"></div>
+    <div class="copyright">
+        <div class="clearfix"><h2>Copyright&nbsp;©&nbsp;2019&nbsp;smartisan.com&nbsp;版权所有</h2>
+            <ul class="privacy">
+                <li><a href="http://www.smartisan.com/support/#/agreement">法律声明</a></li>
+                <li><a href="http://www.smartisan.com/support/#/privacy">隐私条款</a></li>
+            </ul>
+        </div>
+        <h4><a href="http://www.miibeian.gov.cn/" target="_blank"><span>京 ICP 备 18020659 号 - 2</span></a></h4></div>
+</div>
+<div class="m-dialog">
+    <div class="m-dialog-backdrop"></div>
+    <div class="m-dialog-modal">
+        <div class="m-dialog-content">
+            <div class="m-dialog-header"><span class="close" data-dismiss="true">×</span><h4
+                    class="m-dialog-headline"></h4></div>
+            <div class="m-dialog-body"></div>
+        </div>
+    </div>
+</div>
+<script src="./设置安全问题 - Smartisan_files/dep_32beeb2256.js"></script>
+<script src="./设置安全问题 - Smartisan_files/app_5f9f0a9cbe.js"></script>
+<script src="./设置安全问题 - Smartisan_files/template_d14b18bf4b.js"></script>
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TBDW8K" height=0 width=0
+            style=display:none;visibility:hidden></iframe>
+</noscript>
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+        '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-TBDW8K');</script>
+</body>
+</html>

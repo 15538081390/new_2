@@ -1,0 +1,130 @@
+{% extends 'operate/changename.html' %}
+{% load static %}
+{% block nav %}
+<div class="dialog dialog-shadow" style="display: block; margin-top: -237.5px;">
+        <div class="title" ng-class="loginLogoClass">
+            <div ng-show="is1111" class="return-btn ng-hide" ng-click="backToLast()"></div>
+            <h4 ng-bind="dialogTitle" class="ng-binding">修改密码</h4><a class="close"></a></div><!-- ngView:  -->
+        <div class="content ng-scope" ng-view="" ng-animate-children="">
+            <form class="mod-password ng-scope ng-pristine ng-invalid ng-invalid-required" name="form" novalidate=""
+                  autocomplete="off" method="post">
+                <ul class="common-form"><!-- ngIf: oldRequired -->
+                    <li ng-if="oldRequired" class="ng-scope">
+                        <div class="input" i-animation="errAnimation.oldpassword" style="opacity: 0.618;"><span
+                                class="placeholder">旧密码</span> <input type="password" name="oldpassword"
+                                                                      ng-model="user.oldpassword" required=""
+                                                                      ng-trim="false" i-input="" i-response=""
+                                                                      i-focus="" i-auto-focus=""
+                                                                      class="ng-pristine ng-invalid ng-invalid-required ng-valid-oldpassword-valid">
+                            <span class="warning" id = "error1" style="display: none; opacity: 1;"></span>
+
+                        </div>
+                    </li><!-- end ngIf: oldRequired -->
+                    <li class="password">
+                        <div class="input" i-animation="errAnimation.password"><span class="placeholder">新密码</span>
+                            <input type="password" name="password" id="password" ng-model="user.password" required=""
+                                   ng-trim="false" i-input="" i-focus="" i-password=""
+                                   class="ng-pristine ng-invalid ng-invalid-required"> <span class="warning" id = "error2" style="display: none; opacity: 1;"></span>
+                            <!-- end ngIf: !isMobile --> <!-- ngIf: isMobile --></div>
+                        <div class="tips no-icon" i-show="form.password.$focused || password_mousedown"
+                             i-label="#password" style="opacity: 1; display: none;" id="div1"><span class="delta"></span> <span
+                                class="deltapatch"></span> <span class="warningicon"></span>
+                            <div class="verifycon"><p>密码长度 6~10 位</p></div>
+                        </div>
+                        <script>
+                            $('#password').click(function (){
+                                $('#div1').css('display','block')
+
+                            });
+                            var c=document.getElementById('password');
+                            var d=document.getElementById('div1');
+                             c.onmouseout=function(){
+                                d.style.display='none';
+                             }
+
+                        </script>
+                    </li>
+                    <li class="password-repeat">
+                        <div class="input" i-animation="errAnimation.repassword"><span class="placeholder">重复新密码</span>
+                            <input type="password" name="repassword" id="repassword" ng-model="user.repassword"
+                                   required="" ng-trim="false" i-input="" i-focus="" i-password-format=""
+                                   i-repassword="" i-enter="modify()"
+                                   class="ng-pristine ng-invalid ng-invalid-required"> <span class="warning" id = "error3" style="display: none; opacity: 1;"></span>
+                        </div>
+                        <div class="tips no-icon" i-show="form.repassword.$focused || repassword_mousedown"
+                             i-label="repassword" style="opacity: 1; display: none;" id="div2"><span class="delta"></span> <span
+                                class="deltapatch"></span> <span class="warningicon"></span>
+                            <div class="verifycon"><p>密码长度 6~10 位</p></div>
+                        </div>
+                        <script>
+                            $('#repassword').click(function (){
+                                $('#div2').css('display','block')
+
+                            });
+                            var a=document.getElementById('repassword');
+                            var b=document.getElementById('div2');
+                             a.onmouseout=function(){
+                                b.style.display='none'
+                             }
+                        </script>
+                    </li>
+                </ul>
+                <div class="btn-wrapper">
+                     <input class="btn btn-primary" type="submit" id = "submit" style="background: #4f70b3 ; border: none ; color: white" value="确定更改密码">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock nav %}
+{% block js %}
+    <script type="text/javascript">
+	//提交
+	$("#submit").on("click", function(){
+		var data = {};
+		data.oldpassword = $.trim($("input[name=oldpassword]").val());
+		data.password = $.trim($("input[name=password]").val());
+		data.repassword = $.trim($("input[name=repassword]").val());
+		var error1 = document.getElementById('error1');
+		var error2 = document.getElementById('error2');
+		var error3 = document.getElementById('error3');
+		if (data.oldpassword == ''){
+		    error1.innerHTML='请输入旧的密码!';
+		    $('#error1').css('display','inline');
+            return false;
+        }
+		if (data.password == ''){
+		    error2.innerHTML='请输入新的密码!';
+		    $('#error2').css('display','inline');
+            return false;
+        }
+		if (data.repassword == ''){
+		    error3.innerHTML='请再次输入密码!';
+		    $('#error3').css('display','inline');
+            return false;
+        }
+		if (!(data.password.length >= 6 && data.password.length <= 10)){
+		    error2.innerHTML = '请输入正常密码长度(6-10)';
+		    $('#error2').css('display','inline');
+            return false;
+        }
+		if (data.repassword != data.password){
+		    error3.innerHTML='两次输入不一致！';
+		    $('#error3').css('display','inline');
+		    return false;
+        }
+		$.ajax({
+	        type:"POST",
+            data: {oldpassword:data.oldpassword, password : data.password},
+            url: "{% url 'operate:changepsd' %}",
+            cache: false,
+            dataType: "html",
+	        error: function(){
+                        alert("false");
+                    }
+
+	        })
+	})
+
+</script>
+<script type="text/javascript">{{script}}('{{wrong}}')</script>
+{% endblock js %}

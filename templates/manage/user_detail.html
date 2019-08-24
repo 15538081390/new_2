@@ -1,0 +1,72 @@
+
+{% extends 'manage/base.html' %}
+{% block content %}
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">会员详情</h2>
+       <a href="adjust_funding.html" class="fr top_rt_btn money_icon">资金管理</a>
+      </div>
+     <form action="{% url "manage:userdetail" %}" method="post" enctype="multipart/form-data">
+      <ul class="ulColumn2">
+       <li>
+        <span class="item_name" style="width:120px;">上传头像：</span>
+        <label class="uploadImg">
+         <input type="file" name="picture"/>
+         <span>上传头像</span>
+        </label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">会员名称：</span>
+        <input type="text" name="name" class="textbox textbox_225" value="" placeholder="会员名称..."/>
+
+       </li>
+
+           <li>
+        <span class="item_name" style="width:120px;">会员帐号：</span>
+        <input type="text" name="username" class="textbox textbox_225" value="" placeholder="会员帐号..."/>
+
+       </li>
+
+
+       <li>
+        <span class="item_name" style="width:120px;">登陆密码：</span>
+        <input type="password" name="password" class="textbox textbox_225" value="" placeholder="会员密码..."/>
+
+       </li>
+
+
+       <li>
+        <span class="item_name" style="width:120px;">电子邮箱：</span>
+        <input type="email" name="email" class="textbox textbox_225" value="" placeholder="电子邮件地址..."/>
+
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">手机号码：</span>
+        <input type="tel"  name="phone" class="textbox textbox_225" value="" placeholder="手机号码..."/>
+
+       </li>
+
+
+
+       <li>
+        <span class="item_name" style="width:120px;">地址：</span>
+        <input type="text" name="addr" class="textbox textbox_295" value="" placeholder="地址..."/>
+       </li>
+
+
+       <li>
+         <li>
+        <span class="item_name" style="width:120px;">街道：</span>
+        <input type="text" name="street" class="textbox textbox_295" value="" placeholder="详细街道..."/>
+       </li>
+       <li>
+
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn" value="保存"/>
+       </li>
+      </ul>
+     </form>
+ </div>
+</section>
+{% endblock content %}

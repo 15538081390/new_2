@@ -1,0 +1,708 @@
+{% extends 'operate/changename.html' %}
+{% load static %}
+{% block title %}
+        <title ng-bind="$root.title + &#39; - Smartisan&#39;" class="ng-binding">修改手机 - Smartisan</title>
+{% endblock title %}
+{% block nav %}
+    <div class="dialog dialog-shadow" style="display: block; margin-top: -220px;">
+        <div class="title" ng-class="loginLogoClass">
+            <div ng-show="is1111" class="return-btn ng-hide" ng-click="backToLast()"></div>
+            <h4 ng-bind="dialogTitle" class="ng-binding">修改手机</h4><a class="close"></a></div><!-- ngView:  -->
+        <div class="content ng-scope" ng-view="" ng-animate-children="" style="height: auto; opacity: 1;">
+            <form name="form" ng-switch="current" method="post" novalidate="" autocomplete="off"
+                  class="ng-scope ng-pristine ng-invalid ng-invalid-required"><!-- ngSwitchDefault:  -->
+                <div class="valid-user animate-switch ng-scope ng-animate" ng-switch-default=""><h3>请输入您需要更换的手机号码</h3>
+                    <ul class="common-form">
+                        <li ng-show="showCcc" class="country-region">
+                            <div class="input"><span class="icon"><i>国家和地区</i></span> <span class="cr">国家和地区</span>
+                                <span role="button" class="country ng-binding" title="中国" ng-click="showList($event)"
+                                      ng-bind="country">中国</span></div>
+                        </li>
+                        <li class="username">
+                            <div class="input" i-animation="$parent.errAnimation.mobile || errAnimation.mobile"
+                                 style="opacity: 0.618;"><span class="ccc ng-binding" ng-bind="ccc"
+                                                               ng-show="showCcc">86</span><span
+                                    class="placeholder indent" ng-class="{&#39;indent&#39;: showCcc}">手机号</span> <input
+                                    type="text" name="mobile" ng-model="user.mobile" required="" i-input=""
+                                    i-enter="step1()" i-focus="" i-auto-focus="" i-response="" i-mobile=""
+                                    ng-class="{&#39;indent&#39;: showCcc}"
+                                    class="ng-pristine ng-invalid ng-invalid-required indent ng-valid-mobile-registered ng-valid-mobile">
+                                    <span class="warning" id = "error" style="display: none; opacity: 1;"></span>
+
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn-wrapper">
+                        <input class="btn btn-primary" type="submit" id = "submit" style="background: #4f70b3 ; border: none ; color: white" value="下一步">
+                    </div>
+                </div><!-- ngSwitchWhen: step2 --></form>
+            <div class="country-list country-list-forgot dialog-shadow ng-scope"><span class="delta-country"></span>
+                <ul><!-- ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">阿尔巴尼亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">阿尔及利亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">阿富汗
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">阿根廷
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">阿拉伯联合酋长国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">阿鲁巴
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">阿曼
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">阿塞拜疆
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">埃及
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">埃塞俄比亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">爱尔兰
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">爱沙尼亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">安道尔共和国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">安哥拉
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">安圭拉岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">安提瓜和巴布达
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">澳大利亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">奥地利
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">巴巴多斯
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">巴布亚新几内亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">巴哈马
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">巴基斯坦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">巴拉圭
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">巴林
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">巴拿马
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">巴西
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">白俄罗斯
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">百慕大群岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">保加利亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">贝宁
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">比利时
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">冰岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">波多黎各
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">波黑
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">波兰
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">玻利维亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">伯利兹
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">博茨瓦纳
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">不丹
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">布基纳法索
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">布隆迪
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">赤道几内亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">丹麦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">德国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">东帝汶
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">多哥
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">多米尼加
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">多米尼加共和国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">俄罗斯
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">厄瓜多尔
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">厄立特里亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">法国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">法罗群岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">法属玻利尼西亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">法属圭亚那
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">菲律宾
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">斐济
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">芬兰
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">佛得角共和国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">冈比亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">刚果共和国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">刚果民主共和国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">哥伦比亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">哥斯达黎加
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">格林纳达
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">格陵兰岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">格鲁吉亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">瓜德罗普岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">关岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">圭亚那
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">哈萨克斯坦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">海地
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">韩国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">荷兰
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">黑山共和国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">洪都拉斯
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">吉布提
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">吉尔吉斯斯坦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">基里巴斯
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">几内亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">几内亚比绍共和国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">加拿大
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">加纳
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">加蓬
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">柬埔寨
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">捷克
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">津巴布韦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">喀麦隆
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">卡塔尔
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">开曼群岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">科摩罗
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">科特迪瓦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">科威特
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">克罗地亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">肯尼亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">库克群岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">库拉索
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">拉脱维亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">莱索托
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">老挝
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">黎巴嫩
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">立陶宛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">利比里亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">利比亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">列支敦士登
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">留尼汪
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">卢森堡
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">卢旺达
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">罗马尼亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">马达加斯加
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">马尔代夫
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">马耳他
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">马拉维
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">马来西亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">马里
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">马其顿
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">马绍尔群岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">马约特
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">毛里求斯
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">毛里塔尼亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">美国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">美属萨摩亚群岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">蒙古
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">蒙特塞拉特岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">孟加拉国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">秘鲁
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">缅甸
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">摩尔多瓦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">摩洛哥
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">摩纳哥
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">莫桑比克
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">墨西哥
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">纳米比亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">南非
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">尼加拉瓜
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">尼泊尔
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">尼日尔
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">尼日利亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">挪威
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">帕劳
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">葡萄牙
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">日本
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">瑞典
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">瑞士
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">萨尔瓦多
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">萨摩亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">塞尔维亚共和国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">塞拉利昂
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">塞内加尔
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">塞浦路斯
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">塞舌尔
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">沙特阿拉伯
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">圣多美和普林西比
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">圣卢西亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">圣马力诺
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">圣文森特岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">斯里兰卡
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">斯洛伐克
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">斯洛文尼亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">斯威士兰
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">圣彼埃尔和密克隆岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">圣基茨和尼维斯
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">苏丹
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">苏里南
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">所罗门群岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">索马里
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">塔吉克斯坦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">台湾
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">泰国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">坦桑尼亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">汤加
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">特克斯和凯科斯群岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">特立尼达和多巴哥
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">突尼斯
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">土耳其
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">瓦努阿图
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">土库曼斯坦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">危地马拉
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">委内瑞拉
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">文莱
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">乌干达
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">乌克兰
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">乌拉圭
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">乌兹别克斯坦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">希腊
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">西班牙
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">新加坡
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">新喀里多尼亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">新西兰
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">匈牙利
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">牙买加
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">亚美尼亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">也门
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">伊拉克
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">以色列
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">意大利
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">印度
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">印度尼西亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">英国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">英属处女群岛
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">约旦
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">越南
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">赞比亚
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">乍得
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">直布罗陀
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">智利
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">中非共和国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope selected">中国
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">中国澳门特别行政区
+                    </li><!-- end ngRepeat: c in cccList -->
+                    <li ng-repeat="c in cccList" ng-class="{&#39;selected&#39;: country == c.name}"
+                        ng-click="changeCountry(c.code,c.name)" class="ng-binding ng-scope">中国香港特别行政区
+                    </li><!-- end ngRepeat: c in cccList --></ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock nav %}
+{% block js %}
+<script type="text/javascript">
+	//提交
+	$("#submit").on("click", function(){
+		var data = {};
+		data.phone = $.trim($("input[name=mobile]").val());
+		var error = document.getElementById('error');
+		if (data.phone == ''){
+		    error.innerHTML='请输入手机号!';
+		    $('#error').css('display','inline');
+            return false;
+        }
+		if (!(/^1[3|4|5|7|8]\d{9}$/.test(data.phone))) {
+            error.innerHTML='手机号格式有误.';
+            $('#error').css('display','inline');
+            return false;
+        }
+
+		$.ajax({
+	        type:"POST",
+            data: {mobile:data.phone},
+            url: "{% url 'operate:phoneinput' %}",
+            cache: false,
+            dataType: "html",
+            success:function () {
+                window.location.href = '{% url 'operate:rephonecheck' %}'
+            }
+	        })
+	})
+
+</script>
+<script type="text/javascript">{{script}}('{{wrong}}')</script>
+{% endblock js %}

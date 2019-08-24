@@ -1,0 +1,468 @@
+
+      <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+            <div _ngcontent-c5="" class="product-main-wrapper">
+                <div _ngcontent-c5="" class="product-main clearfix">
+                    <div _ngcontent-c5="" class="product-choose-info clearfix">
+                        <div _ngcontent-c5="" class="product-info">
+                            <div _ngcontent-c5="" class="product-title">
+                                <h1 _ngcontent-c5="" button-press="">{{ dise.mername }}</h1>
+                                <h2 _ngcontent-c5="" class="product-subtitle">{{ dise.inf }}</h2><br>
+                                <span style="font-size: 15px;">原价：<i>¥</i>
+                                            <span>
+                                                <del>{{ dise.money }}</del>
+                                            </span>
+                                        </span>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                <span style="font-size: 20px; color: chartreuse; ">活动价：<i>¥</i>
+                                            <big>{{ pcmoney }}</big>
+
+                                        </span>
+                            </div>
+                            <!----> <!---->
+
+
+                            {% ifnotequal dise.kuanshi ' ' %}
+                                <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
+                                    <div _ngcontent-c6="" class="item-spec">
+                                        <span _ngcontent-c6="" class="spec-title">款式选择</span>
+                                        <ul _ngcontent-c6="" class="spec-info"> <!---->
+                                            {% for item in kuanshi %}
+                                                {% ifequal dise.kuanshi item.kuanshi %}
+                                                    <li _ngcontent-c6="" class="active"> <!---->
+                                                        <label _ngcontent-c6=""><input name="Style" type="radio"
+                                                                                       value="{{ item.kuanshi }}"
+                                                                                       checked="checked"/>{{ item.kuanshi }}
+                                                        </label>
+
+                                                        <!----> </li>
+                                                {% else %}
+                                                    <li _ngcontent-c6="" class="active"> <!---->
+                                                    <label _ngcontent-c6=""><input name="Style" type="radio"
+                                                                                   value="{{ item.kuanshi }}"/>{{ item.kuanshi }}
+                                                    </label>
+
+                                                {% endifequal %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </section>
+                            {% else %}
+
+                                <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package"
+                                         style="display: none">
+                                    <div _ngcontent-c6="" class="item-spec">
+                                        <span _ngcontent-c6="" class="spec-title">款式选择</span>
+                                        <ul _ngcontent-c6="" class="spec-info"> <!---->
+                                            {% for item in kuanshi %}
+                                                <li _ngcontent-c6="" class="active"> <!---->
+                                                <label _ngcontent-c6=""><input name="Style" type="radio"
+                                                                               value="{{ item.kuanshi }}"/>{{ item.kuanshi }}
+                                                </label>
+
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </section>
+
+                            {% endifnotequal %}
+
+
+
+
+                            {% ifnotequal dise.color ' ' %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-color first-spec-wrapper">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">颜色选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in color %}
+
+                                                {% ifequal dise.color item.color %}
+
+                                                    <li _ngcontent-c5="" class="active"> <!---->
+                                                        <label _ngcontent-c5=""><input name="Color" type="radio"
+                                                                                       value="{{ item.color }}"
+                                                                                       checked="checked"/>{{ item.color }}
+                                                        </label>
+                                                        <div _ngcontent-c5="" class="specs-item item-inline"><h1
+                                                                _ngcontent-c5=""
+                                                                class="item-name"> {{ item.color }} </h1>
+                                                        </div>
+                                                        <!----> </li>
+                                                {% else %}
+                                                    <li _ngcontent-c5="" class="active"> <!---->
+
+                                                        <label _ngcontent-c5=""><input name="Color" type="radio"
+                                                                                       value="{{ item.color }}"/>{{ item.color }}
+                                                        </label>
+                                                        <div _ngcontent-c5="" class="specs-item item-inline"><h1
+                                                                _ngcontent-c5=""
+                                                                class="item-name"> {{ item.color }} </h1>
+                                                        </div>
+                                                        <!----> </li>
+                                                {% endifequal %}
+                                            {% endfor %}
+                                        </ul> <!----> </div>
+                                </div>
+                            {% else %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-color first-spec-wrapper"
+                                     style="display: none">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">颜色选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in color %}
+
+                                                <li _ngcontent-c5="" class="active"> <!---->
+
+                                                    <label _ngcontent-c5=""><input name="Color" type="radio"
+                                                                                   value="{{ item.color }}"/>{{ item.color }}
+                                                    </label>
+                                                    <div _ngcontent-c5="" class="specs-item item-inline"><h1
+                                                            _ngcontent-c5="" class="item-name"> {{ item.color }} </h1>
+                                                    </div>
+                                                    <!----> </li>
+
+                                            {% endfor %}
+                                        </ul> <!----> </div>
+                                </div>
+                            {% endifnotequal %}
+
+                            {% ifnotequal dise.specification ' ' %}
+                                <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package">
+                                    <div _ngcontent-c6="" class="item-spec"><span _ngcontent-c6=""
+                                                                                  class="spec-title">规格选择</span>
+                                        <ul _ngcontent-c6="" class="spec-info"> <!---->
+                                            {% for item in specification %}
+                                                {% ifequal dise.specification item.specification %}
+                                                    <li _ngcontent-c6="" class="active"> <!---->
+
+                                                        <label _ngcontent-c6=""><input name="Specification" type="radio"
+                                                                                       value="{{ item.specification }}"
+                                                                                       checked="checked"/>{{ item.specification }}
+                                                        </label>
+                                                        <!----> </li>
+
+                                                {% else %}
+                                                    <li _ngcontent-c6="" class="active"> <!---->
+
+                                                        <label _ngcontent-c6=""><input name="Specification" type="radio"
+                                                                                       value="{{ item.specification }}"/>{{ item.specification }}
+                                                        </label>
+
+                                                        <!----> </li>
+                                                {% endifequal %}
+                                            {% endfor %}
+
+                                        </ul>
+                                    </div>
+                                </section>
+                            {% else %}
+                                <section _ngcontent-c6="" class="item-spec-wrapper clearfix item-spec-package"
+                                         style="display: none">
+                                    <div _ngcontent-c6="" class="item-spec"><span _ngcontent-c6=""
+                                                                                  class="spec-title">规格选择</span>
+                                        <ul _ngcontent-c6="" class="spec-info"> <!---->
+                                            {% for item in specification %}
+                                                <li _ngcontent-c6="" class="active"> <!---->
+
+                                                    <label _ngcontent-c6=""><input name="Specification" type="radio"
+                                                                                   value="{{ item.specification }}"/>{{ item.specification }}
+                                                    </label>
+
+                                                    <!----> </li>
+                                            {% endfor %}
+
+                                        </ul>
+                                    </div>
+                                </section>
+                            {% endifnotequal %}
+
+
+
+                            {% ifnotequal dise.capacity ' ' %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-memory last-spec-wrapper">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">容量选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in capacity %}
+
+                                                {% ifequal dise.capacity item.capacity %}
+                                                    <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                        <div _ngcontent-c5="" class="specs-item item-inline">
+                                                            <label _ngcontent-c5=""><input name="Rong" type="radio"
+                                                                                           value="{{ item.capacity }}"
+                                                                                           checked="checked"/>{{ item.capacity }}
+                                                            </label><br>
+                                                        </div>
+                                                        <!----> </li>
+                                                {% else %}
+
+                                                    <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                        <div _ngcontent-c5="" class="specs-item item-inline">
+                                                            <label _ngcontent-c5=""><input name="Rong" type="radio"
+                                                                                           value="{{ item.capacity }}"/>{{ item.capacity }}
+                                                            </label><br>
+                                                        </div>
+                                                        <!----> </li>
+
+                                                {% endifequal %}
+
+                                            {% endfor %}
+                                        </ul> <!---->
+                                    </div>
+                                </div> <!---->
+                            {% else %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-memory last-spec-wrapper"
+                                     style="display: none">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">容量选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in capacity %}
+
+                                                <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                    <div _ngcontent-c5="" class="specs-item item-inline">
+                                                        <label _ngcontent-c5=""><input name="Rong" type="radio"
+                                                                                       value="{{ item.capacity }}"/>{{ item.capacity }}
+                                                        </label><br>
+                                                    </div>
+                                                    <!----> </li>
+                                            {% endfor %}
+                                        </ul> <!---->
+                                    </div>
+                                </div> <!---->
+                            {% endifnotequal %}
+
+                            {% ifnotequal dise.size ' ' %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-memory last-spec-wrapper">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">尺码选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in size %}
+
+                                                {% ifequal dise.size item.size %}
+                                                    <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                        <div _ngcontent-c5="" class="specs-item item-inline">
+                                                            <label _ngcontent-c5=""><input name="Size" type="radio"
+                                                                                           value="{{ item.size }}"
+                                                                                           checked="checked"/>{{ item.size }}
+                                                            </label><br>
+                                                        </div>
+                                                        <!----> </li>
+                                                {% else %}
+
+                                                    <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                        <div _ngcontent-c5="" class="specs-item item-inline">
+                                                            <label _ngcontent-c5=""><input name="Size" type="radio"
+                                                                                           value="{{ item.size }}"/>{{ item.size }}
+                                                            </label><br>
+                                                        </div>
+                                                        <!----> </li>
+
+                                                {% endifequal %}
+
+                                            {% endfor %}
+                                        </ul> <!---->
+                                    </div>
+                                </div> <!---->
+                            {% else %}
+                                <div _ngcontent-c5=""
+                                     class="product-spec-wrapper product-spec-memory last-spec-wrapper"
+                                     style="display: none">
+                                    <div _ngcontent-c5="" class="product-spec"><span _ngcontent-c5=""
+                                                                                     class="spec-name">尺码选择</span>
+                                        <ul _ngcontent-c5="" class="spec-info"> <!---->
+                                            {% for item in size %}
+
+                                                <li _ngcontent-c5="" class="active"> <!----> <!----> <!---->
+                                                    <div _ngcontent-c5="" class="specs-item item-inline">
+                                                        <label _ngcontent-c5=""><input name="Size" type="radio"
+                                                                                       value="{{ item.size }}"/>{{ item.size }}
+                                                        </label><br>
+                                                    </div>
+                                                    <!----> </li>
+                                            {% endfor %}
+                                        </ul> <!---->
+                                    </div>
+                                </div> <!---->
+                            {% endifnotequal %}
+                            <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+                            <script>
+                                $(document).ready(function () {
+                                    $('input[type=radio]').change(function () {
+                                        var v1 = $("input[name='Size']:checked").val();
+                                        var v2 = $("input[name='Rong']:checked").val();
+                                        var v3 = $("input[name='Color']:checked").val();
+                                        var v4 = $("input[name='Specification']:checked").val();
+                                        var v5 = $("input[name='Style']:checked").val();
+                                        if (v1) {
+                                            v1 = v1
+                                        } else {
+                                            v1 = ' '
+                                        }
+                                        if (v2) {
+                                            v2 = v2
+                                        } else {
+                                            v2 = ' '
+                                        }
+                                        if (v3) {
+                                            v3 = v3
+                                        } else {
+                                            v3 = ' '
+                                        }
+                                        if (v4) {
+                                            v4 = v4
+                                        } else {
+                                            v4 = ' '
+                                        }
+                                        if (v5) {
+                                            v5 = v5
+                                        } else {
+                                            v5 = ' '
+                                        }
+                                        var product = {{dise.pcid}}
+                                            console.log(v1, v2, v3, v4, v5, product)
+                                        $.ajax({
+                                            type: "POST",
+                                            data: {v1: v1, v2: v2, v3: v3, v4: v4, v5: v5, product: product},
+                                            traditional: true,
+                                            url: "{% url 'app:change' %}",
+                                            cache: false,
+                                            success: function (result, statues, xml) {
+                                                $('.product-content').html(result)
+                                            },
+                                            error: function () {
+                                                alert("false");
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
+
+                            <section _ngcontent-c6="" class="item-do-count-wrapper clearfix">
+                                <div _ngcontent-c6="" class="item-do-count">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                数量选择&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                            </td>
+                                            <td id="tab" colspan="2">
+                                                <span style="display: none;">单价:</span><span class="price"
+                                                                                             style="display: none;">{{ pcmoney }}</span>
+                                                <input class="min" name="" id='subtract{{ dise.mid }}' type="button"
+                                                       value="-"
+                                                       style="width: 17px;border: solid 0.5px;border-radius: 50%;background-color: white"/>
+                                                <input class="text_box" name="" id="text1{{ dise.mid }}" type="text" value="1" placeholder="0"
+                                                       style="border: none;width:15px" ;/>
+                                                <input class="add" name="" id="plus{{ dise.mid }}" type="button"
+                                                       value="+"
+                                                       style="width: 17px;border: solid 0.5px;border-radius: 50%;background-color: white"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </section>
+
+                            {% if dise.service %}
+                                <section _ngcontent-c6="" class="sku-custom-tips-wrapper clearfix">
+                                    <div _ngcontent-c6="" class="sku-custom-tips">
+                                            <span _ngcontent-c6=""
+                                                  class="sku-custom-tips-title">服务说明</span>
+                                        <aside _ngcontent-c6="" class="sku-custom-tips-text"> <!---->
+                                            <p _ngcontent-c6="">
+                                                {{ show.service }}</p></aside>
+                                    </div>
+                                </section>
+                            {% endif %}
+                        </div>
+                        <figure _ngcontent-c5="" class="product-view">
+                            <img _ngcontent-c5="" src="{{ dise.picture }}">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <div _ngcontent-c5="" class="product-fix-bar follow">
+                <div _ngcontent-c5="" class="fix-bar-wrapper"><h1 _ngcontent-c5="" class="bar-text">您已选择了</h1>
+                    <div _ngcontent-c5="" class="bar-device-info"><h1 _ngcontent-c5="" class="clearfix"><span
+                            _ngcontent-c5="" class="title">{{ dise.mername }}</span> <!----><span _ngcontent-c5=""
+                                                                                                  class="price"><i>¥</i> <input type="text" id="money{{ dise.mid }}"
+                                                                       value="{{ dise.money }}" style="border-style:none"
+                                                                       name="{{ dise.mid }}"/></span>
+                        <!----> </h1>
+                        <h2 _ngcontent-c5=""> <!----><span _ngcontent-c5="">{{ dise.color }}<!----><span
+                                _ngcontent-c5="">&nbsp;|&nbsp;</span></span><span
+                                _ngcontent-c5="">{{ dise.capacity }}
+                            <!----></span></h2></div> <!----> <!---->
+                    <div _ngcontent-c5="" class="bar-accessories"><h1 _ngcontent-c5=""><span _ngcontent-c5=""
+                                                                                             class="title">附加商品</span>
+                        <!----> </h1> <!----><h2 _ngcontent-c5="" class="no-accessory"> 一同下单，将免费送货 </h2>
+                        <!----> <!----> <!----> </div> <!---->
+                    <div _ngcontent-c5="" class="bar-postage-fee"><h1 _ngcontent-c5=""><span _ngcontent-c5=""
+                                                                                             class="title">运费</span>
+                    </h1> <span _ngcontent-c5="" class="price"><i>¥</i> <span>0.00</span></span></div>
+                    <div _ngcontent-c5="" class="bar-postage-fee"><h1 _ngcontent-c5=""><span _ngcontent-c5=""
+                                                                                             class="title">活动优惠</span>
+                    </h1> <span _ngcontent-c5="" class="price"><span><img src="/static/image/85573cfd7c04c97.jpg"
+                                                                          style="width: 20px;">7折</span></span>
+                    </div>
+                    <div _ngcontent-c5="" class="bar-btn disabled notice"><a href="{% url "app:pay1" mid=dise.mid %}"> 现在购买 </a></div>
+                    <button _ngcontent-c5="" class="bar-btn add-cart-btn" id="shopcar"> 加入购物车</button>
+                    <!----> <!----><!----> <!---->
+                    <div _ngcontent-c5="" class="no-discount-price"> <!----> <!---->
+                        <div _ngcontent-c5="" class="bar-price"><i>¥</i>{{ pcmoney }}</div>
+                    </div>  <!---->  <!----> </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('#plus{{ dise.mid }}').click(function () {
+                        var num = $("#text1{{ dise.mid }}").val();
+                        var money = {{dise.money}};
+                        console.log(num)
+                        $('#text1{{ dise.mid }}').val(Number(num) + 1)
+                        $('#money{{ dise.mid }}').val((Number(num) + 1) * Number(money))
+                        $('.bar-price').html(((Number(num) + 1) * Number(money)*Number(0.7)).toFixed(1))
+                    });
+                    $('#subtract{{ dise.mid }}').click(function () {
+                        var num = $("#text1{{ dise.mid }}").val();
+                        var money = {{dise.money}};
+                        console.log(num)
+                        if (num == 0) {
+                            $('#text1{{ dise.mid }}').val(0);
+                            $('#money{{ dise.mid }}').val(0);
+                            $('.bar-price').html(0)
+                        } else {
+                            $('#text1{{ dise.mid }}').val(Number(num) - 1)
+                            $('#money{{ dise.mid }}').val((Number(num) - 1) * Number(money))
+                            $('.bar-price').html(((Number(num) - 1) * Number(money)*Number(0.7)).toFixed(1))
+                        }
+                    });
+
+
+                 $('#shopcar').click(function () {
+                        console.log('--------')
+                     var a ={{ dise.mid }}
+                        $.ajax({
+                            type: "POST",
+                            data: {mid: a},
+                            traditional: true,
+                            url: "{% url 'app:joinshopcar' %}",
+                            cache: false,
+                            success: function (result, statues, xml) {
+                                alert(result)
+                            },
+                            error: function () {
+                                alert("false");
+                            }
+                        });
+                    });
+                });
+            </script>
+
+
+
+

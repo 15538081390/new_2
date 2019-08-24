@@ -1,0 +1,70 @@
+{% extends 'operate/changename.html' %}
+{% load static %}
+{% block nav %}
+<div class="dialog dialog-shadow" style="display: block; margin-top: -188.5px;">
+        <div class="title" ng-class="loginLogoClass">
+            <div ng-show="is1111" class="return-btn ng-hide" ng-click="backToLast()"></div>
+            <h4 ng-bind="dialogTitle" class="ng-binding">修改邮箱</h4><a class="close"></a></div><!-- ngView:  -->
+        <div class="content ng-scope" ng-view="" ng-animate-children="" style="height: auto; opacity: 1;">
+            <form name="form" ng-switch="current" novalidate="" autocomplete="off" method="post"
+                  class="ng-scope ng-pristine ng-invalid ng-invalid-required"><!-- ngSwitchDefault:  -->
+                <div class="valid-user ng-scope" ng-switch-default=""><h3 class="ng-binding">请输入您需要修改的邮箱地址</h3>
+                    <ul class="common-form">
+                        <li>
+                            <div class="input" i-animation="$parent.errAnimation.mail || errAnimation.mail"
+                                 style="opacity: 0.618;"><span class="placeholder">邮箱</span> <input type="text"
+                                                                                                    name="mail"
+                                                                                                    ng-model="user.mail"
+                                                                                                    required=""
+                                                                                                    i-input="" i-mail=""
+                                                                                                    i-focus=""
+                                                                                                    i-enter="next()"
+                                                                                                    i-auto-focus=""
+                                                                                                    i-response=""
+                                                                                                    class="ng-pristine ng-invalid ng-invalid-required ng-valid-email-registered ng-valid-mail">
+                                <span class="warning" id = "error" style="display: none; opacity: 1;"></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn-wrapper">
+                        <input class="btn btn-primary" type="submit" id = "submit" style="background: #4f70b3 ; border: none ; color: white" value="下一步">
+                    </div>
+                </div><!-- ngSwitchWhen: step2 --></form>
+        </div>
+    </div>
+{% endblock nav %}
+{% block js %}
+    <script type="text/javascript">
+	//提交
+	$("#submit").on("click", function(){
+		var data = {};
+		var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+		data.email = $.trim($("input[name=mail]").val());
+		var error = document.getElementById('error');
+		isok = reg.test(data.email);
+		$('#error').css('display','inline');
+		if (data.email == ''){
+		    error.innerHTML='请输入要修改的邮箱!';
+            return false;
+        }
+		if (!isok){
+		    error.innerHTML = '请输入正确的邮箱';
+            return false;
+        }
+
+		$.ajax({
+	        type:"POST",
+            data: {mail:data.email},
+            url: "{% url 'operate:changeemail' %}",
+            cache: false,
+            dataType: "html",
+	        error: function(){
+                        alert("false");
+                    }
+
+	        })
+	})
+
+</script>
+<script type="text/javascript">{{script}}('{{wrong}}')</script>
+{% endblock js %}

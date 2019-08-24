@@ -1,0 +1,34 @@
+{% extends 'manage/base.html' %}
+
+{% block content %}
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">支付方式</h2>
+       <a href="{% url "manage:addpay" %}" class="fr top_rt_btn add_icon">添加支付方式</a>
+      </div>
+      <table class="table">
+       <tr>
+        <th>缩略图</th>
+        <th>支付名称</th>
+        <th>支付描述</th>
+        <th>操作</th>
+       </tr>
+          {% for p in pay_list %}
+       <tr>
+        <td class="center"><img src="{{p.picture}}" width="165" height="65"/></td>
+        <td>{{p.name}}</td>
+        <td><p>{{ p.instro }}</p></td>
+        <td class="center">
+         <a href="product_detail.html" title="编辑" class="link_icon">&#101;</a>
+         <a href="{% url "manage:deletepay" p.idpay %}" title="删除" class="link_icon">&#100;</a>
+        </td>
+       </tr>
+          {% endfor %}
+
+      </table>
+
+ </div>
+</section>
+
+{% endblock content %}

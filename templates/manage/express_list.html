@@ -1,0 +1,33 @@
+{% extends 'manage/base.html' %}
+
+{% block content %}
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">配送方式</h2>
+       <a href="{% url "manage:adddistrib" %}" class="fr top_rt_btn add_icon">添加配送方式</a>
+      </div>
+      <table class="table">
+       <tr>
+        <th>缩略图</th>
+        <th>快递名称</th>
+        <th>快递描述</th>
+        <th>操作</th>
+       </tr>
+          {% for d in distrib_list %}
+       <tr>
+        <td class="center"><img src="{{d.picture}}" width="165" height="65"/></td>
+        <td>{{d.name}}</td>
+        <td><p>{{ d.instro }}</p></td>
+        <td class="center">
+         <a href="product_detail.html" title="编辑" class="link_icon">&#101;</a>
+         <a href="{% url "manage:deletedistrib" d.iddistrib %}" title="删除" class="link_icon">&#100;</a>
+        </td>
+       </tr>
+          {% endfor %}
+
+      </table>
+
+ </div>
+</section>
+{% endblock content %}

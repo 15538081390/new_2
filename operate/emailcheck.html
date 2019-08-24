@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0107)https://account.smartisan.com/#/auth/modifyMobile?return_url=https:%2F%2Fwww.smartisan.com%2Fuser%2Faccount -->
+<html lang="zh" ng-app="accountApp" class="ng-scope">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-block-transitions {
+        transition: 0s all !important;
+        -webkit-transition: 0s all !important;
+    }
+
+    .ng-hide-add-active, .ng-hide-remove {
+        display: block !important;
+    }</style>
+    <meta name="keywords" content="锤子商城, 智能手机, 用户体验">
+    <meta name="description">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title ng-bind="$root.title + &#39; - Smartisan&#39;" class="ng-binding">安全验证 - Smartisan</title>
+    <link href="https://static.smartisanos.cn/common/img/favicon.ico" rel="shortcut icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_114.png" rel="apple-touch-icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_76.png" sizes="76x76" rel="apple-touch-icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_120.png" sizes="120x120" rel="apple-touch-icon">
+    <link href="https://static.smartisanos.cn/common/img/favicon_152.png" sizes="152x152" rel="apple-touch-icon">
+    <link rel="stylesheet" href="{% static 'css/userform/main_1666763a09.css' %}">
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <script async="" src="./邮箱验证 - Smartisan_files/gtm.js"></script>
+    <script src="./邮箱验证 - Smartisan_files/jweixin-1.3.2.js"></script>
+    <script src="./邮箱验证 - Smartisan_files/update-browser.js"></script>
+</head>
+<body class="v2 auth-page" ng-class="pageClass" style="">
+<div class="wrapper ng-scope" ng-controller="MainCtrl"
+     ng-class="{ &#39;cloud&#39;: isEmbedCloud, &#39;bbs&#39;: isEmbedBbs, &#39;bbs-tmp&#39;: isEmbedBbsTmp, &#39;settings&#39;: isSettings, &#39;guest&#39;: isGuestLogin, &#39;avatar&#39;: isModifyAvatar, &#39;notes&#39;: isEmbedNotes, &#39;contacts&#39;: isEmbedContacts, &#39;radar&#39;: isEmbedRadar, &#39;four-1&#39;: is1111}">
+    <div class="dialog dialog-shadow" style="display: block; margin-top: -211.5px;">
+        <div class="title" ng-class="loginLogoClass">
+            <div ng-show="is1111" class="return-btn ng-hide" ng-click="backToLast()"></div>
+            <h4 ng-bind="dialogTitle" class="ng-binding">安全验证</h4><a class="close"></a></div><!-- ngView:  -->
+        <div class="content ng-scope" ng-view="" ng-animate-children="" style="height: auto; opacity: 1;">
+            <form name="form" ng-switch="current" novalidate="" autocomplete="off"
+                  class="ng-scope ng-pristine ng-valid"><!-- ngSwitchDefault:  --><!-- ngSwitchWhen: cellphone -->
+                <!-- ngSwitchWhen: email -->
+                <div class="valid-mail animate-switch ng-scope ng-animate" ng-switch-when="email">
+                    <div class="view"><h3>验证邮件发送成功</h3><h5>如果没有收到邮件，请检查垃圾邮件<b>，</b>或点击重新发送按钮</h5>
+                        <ul class="clearfix">
+                            <li>
+                                {% for mail in user %}
+                                    {% if '126' in email %}
+                                        <div class="btn btn-primary"><a ng-click="gotoEmail()" href="https://www.126.com/">查看我的邮箱</a></div>
+                                    {% elif 'qq' in email %}
+                                        <div class="btn btn-primary"><a ng-click="gotoEmail()" href="https://mail.qq.com/">查看我的邮箱</a></div>
+                                    {% elif '163' in email %}
+                                        <div class="btn btn-primary"><a ng-click="gotoEmail()" href="https://mail.163.com/">查看我的邮箱</a></div>
+                                    {% elif 'outlook' in email %}
+                                        <div class="btn btn-primary"><a ng-click="gotoEmail()" href="https://outlook.live.com/mail/inbox">查看我的邮箱</a></div>
+                                    {% else %}
+                                        <div class="btn btn-primary"><a ng-click="gotoEmail()" href="https://outlook.live.com/mail/inbox">查看我的邮箱</a></div>
+                                    {% endif %}
+
+
+
+                                {% endfor %}
+                            </li>
+                            <li>
+{#                                <div class="btn btn-default ng-hide" ng-show="showBtn" ng-click="resendEmail()"><a>重新发送邮件</a>#}
+{#                                </div>#}
+                                <div  ><input type="submit" id="click" class="ng-binding" value="重新发送邮件" onclick="settime(this)" style="width: 178px;height: 45px; border: none">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- ngSwitchWhen: secques --></form>
+        </div>
+    </div>
+    <div class="loading" style="display: none;"></div>
+    <div class="copyright">
+        <div class="clearfix"><h2>Copyright&nbsp;©&nbsp;2019&nbsp;smartisan.com&nbsp;版权所有</h2>
+            <ul class="privacy">
+                <li><a href="http://www.smartisan.com/support/#/agreement">法律声明</a></li>
+                <li><a href="http://www.smartisan.com/support/#/privacy">隐私条款</a></li>
+            </ul>
+        </div>
+        <h4><a href="http://www.miibeian.gov.cn/" target="_blank"><span>京 ICP 备 18020659 号 - 2</span></a></h4></div>
+</div>
+<div class="m-dialog">
+    <div class="m-dialog-backdrop"></div>
+    <div class="m-dialog-modal">
+        <div class="m-dialog-content">
+            <div class="m-dialog-header"><span class="close" data-dismiss="true">×</span><h4
+                    class="m-dialog-headline"></h4></div>
+            <div class="m-dialog-body"></div>
+        </div>
+    </div>
+</div>
+<script src="./邮箱验证 - Smartisan_files/dep_32beeb2256.js"></script>
+<script src="./邮箱验证 - Smartisan_files/app_5f9f0a9cbe.js"></script>
+<script src="./邮箱验证 - Smartisan_files/template_d14b18bf4b.js"></script>
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TBDW8K" height=0 width=0
+            style=display:none;visibility:hidden></iframe>
+</noscript>
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+        '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-TBDW8K');</script>
+</body>
+ <script type="text/javascript">
+    var countdown=300;
+    function settime(obj) {
+        if (countdown == 0) {
+            obj.removeAttribute("disabled");
+            obj.value = "重新发送邮件";
+            countdown = 300;
+            return;
+        } else {
+            obj.setAttribute("disabled", true);
+            obj.value = "重新发送(" + countdown + ")";
+            countdown--;
+        }
+        setTimeout(function () {
+                settime(obj)
+            }
+            , 1000)
+        }
+        $("#click").on("click", function(){
+		$.ajax({
+	        url:"{% url 'operate:emailcode' %}" ,
+	        async : true,
+	        type: "post",
+	        dataType: "json",
+	        success: function () {
+	        	if(result != 'ok'){
+	        		alert("发送失败");
+	        		return false;
+	        	}
+	        }
+    	});
+	})
+</script>
+</html>
